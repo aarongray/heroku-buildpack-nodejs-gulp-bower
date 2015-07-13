@@ -5,7 +5,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 # set -x          # enable debugging
 
 # Configure directories
-build_dir=$1
+build_dir=$1/client
 cache_dir=$2
 env_dir=$3
 
@@ -146,7 +146,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 
 # Check and run gulp
 (
-  if [ -f $build_dir/client/gulpfile.js ]; then
+  if [ -f $build_dir/gulpfile.js ]; then
     # get the env vars
     if [ -d "$env_dir" ]; then
       status "Exporting config vars to environment"
